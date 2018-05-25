@@ -1,0 +1,39 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    driver-class-name: org.h2.Driver
+    #file:D:\workspaces\workspace_deepfree\spring-flyway-h2-demo\data\localdb;AUTO_SERVER=TRUE
+    url: "jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE"
+    username: "sa"
+    password: "able1234"
+    jmx-enabled: false
+
+#[Mybatis 설정]
+mybatis:
+  configuration:
+    cache-enabled: true
+    lazy-loading-enabled: false
+    multiple-result-sets-enabled: true
+    use-column-label: true
+    use-generated-keys: false
+    auto-mapping-behavior: partial
+    default-executor-type: simple
+    default-statement-timeout: 25
+    safe-row-bounds-enabled: false
+    map-underscore-to-camel-case: true
+    local-cache-scope: session
+    jdbc-type-for-null: nvarchar
+    lazy-load-trigger-methods:
+      equals
+      clone
+      hashCode
+      toString
+    log-prefix: "[SQL]"
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  #type-handlers-package: kr.co.kpcard.tgrid.common.mybatis.spring.typehandler
+  mapper-locations:
+  #- "mybatis/config/mybatis-mapper.xml"
+  - "mybatis/mapper/**/*.xml"
